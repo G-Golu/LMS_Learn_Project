@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["Title"] = "SignIn";
+}
+
+<!-- Centered Form with Toggle Buttons -->
+<div class="container d-flex flex-column align-items-center" style="min-height: 100vh;">
+    <h2 class="mb-4">LMS LEARN</h2>
+
+    <!-- Toggle Buttons -->
+    <div class="mb-4">
+        <button id="signUpBtn" class="btn active-btn toggle-btn" onclick="showSignUp()">Sign Up</button>
+        <button id="signInBtn" class="btn inactive-btn toggle-btn" onclick="showSignIn()">Sign In</button>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signUpForm" class="form-container">
+        <h3>Create a new account</h3>
+        <p>Enter your details to get started</p>
+        <form action="/SignUp/Submit" method="post">
+            <div class="mb-3">
+                <label class="form-label">User Name</label>
+                <input type="text" class="form-control custom-input" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">User Email</label>
+                <input type="email" class="form-control custom-input" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control custom-input" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn custom-button">Sign Up</button>
+        </form>
+    </div>
+
+    <!-- Sign In Form (Initially Hidden) -->
+    <div id="signInForm" class="form-container d-none">
+        <h3>Sign in to your account</h3>
+        <p>Enter your email and password</p>
+        <form action="/SignIn/Submit" method="post">
+            <div class="mb-3">
+                <label class="form-label">User Email</label>
+                <input type="email" class="form-control custom-input" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control custom-input" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn custom-button">Sign In</button>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript for Form Toggle and Button Color Change -->
+<script>
+    function showSignUp() {
+        document.getElementById("signUpForm").classList.remove("d-none");
+        document.getElementById("signInForm").classList.add("d-none");
+
+        document.getElementById("signUpBtn").classList.add("active-btn");
+        document.getElementById("signUpBtn").classList.remove("inactive-btn");
+
+        document.getElementById("signInBtn").classList.add("inactive-btn");
+        document.getElementById("signInBtn").classList.remove("active-btn");
+
+    }
+
+    function showSignIn() {
+        document.getElementById("signInForm").classList.remove("d-none");
+        document.getElementById("signUpForm").classList.add("d-none");
+
+        document.getElementById("signInBtn").classList.add("active-btn");
+        document.getElementById("signInBtn").classList.remove("inactive-btn");
+
+        document.getElementById("signUpBtn").classList.add("inactive-btn");
+        document.getElementById("signUpBtn").classList.remove("active-btn");
+
+    }
+</script>
+
+<!-- Custom Styles -->
+<style>
+    /* Button Styles */
+    .toggle-btn {
+        font-size: 20px;
+        padding: 12px 30px;
+        
+        border-radius: 9px;
+        font-weight: 100;
+        margin: 0 12px;
+    }
+
+    .active-btn {
+        background-color: green;
+        color: white;
+        border: none;
+    }
+
+    .inactive-btn {
+        background-color: darkred;
+        color: white;
+        border: none;
+    }
+
+    /* Form Styles */
+    .form-container {
+        width: 400px;
+        padding: 25px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    /* Input Field Styling */
+    .custom-input {
+        height: 45px;
+        font-size: 16px;
+        background-color: #f0f0f0;
+        border: none;
+        border-radius: 6px;
+        padding: 10px;
+    }
+
+    /* Sign Up/Sign In Button */
+    .custom-button {
+        width: 100%;
+        background-color: black;
+        color: white;
+        border-radius: 8px;
+        height: 50px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        .custom-button:hover {
+            background-color: #333;
+        }
+</style>
