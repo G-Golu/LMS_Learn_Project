@@ -21,7 +21,7 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                          
+
                         </li>
                         @* <li class="nav-item"> *@
                         @*     <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
@@ -32,7 +32,7 @@
                         @* <li class="nav-item"> *@
                         @*     <a class="nav-link text-dark" asp-area="" asp-controller="SignIn" asp-action="SignIn">Sign In</a> *@
                         @* </li> *@
-                          <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="SignUpController1" asp-action="SignUp">Sign UP</a>
                         </li>
                         <li class="nav-item">
@@ -40,11 +40,22 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Video" asp-action="Video"> Lecture Video </a>
-                        </li
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Admin"> Admin Login </a>
                         </li>
-                       
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Login
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Admin"> Admin Login </a>
+                                </li>
+                                <li><hr class="dropdown-divider mt-0 mb-0"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Admin">Student Login </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
