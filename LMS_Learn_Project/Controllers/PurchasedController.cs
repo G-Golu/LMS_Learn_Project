@@ -2,11 +2,10 @@
 
 namespace LMS_Learn_Project.Controllers
 {
-    public class ExploreController : Controller
+    public class PurchasedController : Controller
     {
-        public IActionResult Index()
+        public IActionResult PurchasedCourse()
         {
-         
             return View();
         }
     }

@@ -1,0 +1,53 @@
+﻿<link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+
+@model List<Course>
+@{
+    ViewData["Title"] = "Explore Courses";
+}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>LMS LEARN</h2>
+        <div>
+            <a asp-controller="Explore" asp-action="Index" class="btn btn-light">Explore Courses</a>
+            <a asp-controller="MyCourse" asp-action="MyCourse" class="btn btn-dark">My Courses</a>
+            <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Sign Out</a>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <h5>Category</h5>
+            <ul class="list-group mb-3">
+                <li class="list-group-item">Web Development</li>
+                <li class="list-group-item">Backend Development</li>
+                <li class="list-group-item">Data Science</li>
+                <li class="list-group-item">Machine Learning</li>
+                <li class="list-group-item">Artificial Intelligence</li>
+                <li class="list-group-item">Cloud Computing</li>
+                <li class="list-group-item">Cyber Security</li>
+                <li class="list-group-item">Mobile Development</li>
+                <li class="list-group-item">Game Development</li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                @foreach (var course in Model)
+                {
+                    <div class="col-md-6 mb-3">
+                        <div class="card shadow-sm">
+                            <img src="@course.ImageUrl" class="card-img-top" alt="@course.Title">
+                            <div class="card-body">
+                                <h5 class="card-title">@course.Title</h5>
+                                <p class="card-text">Created By: <strong>@course.Creator</strong></p>
+                                <p class="card-text">@course.Lectures Lectures - <span class="text-muted">@course.Level Level</span></p>
+                                <p class="card-text fw-bold">$@course.Price</p>
+                                <a href="" class="btn btn-primary">Enroll Now</a>
+                                <a asp-controller="Purchased" asp-action="PurchasedCourse" class="btn btn-danger">Enroll Now</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
